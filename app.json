@@ -1,0 +1,27 @@
+{
+    "id": "135b1d0e-3543-4ef8-a585-9d14db023a75",
+    "name": "Gsje",
+    "publisher": "gejjech",
+    "version": "1.0.0.0",
+    "brief": "Gsje Business Central Extension",
+    "description": "A Business Central AL extension for Gsje project with Apify integration support",
+    "privacyStatement": "",
+    "EULA": "",
+    "help": "",
+    "url": "",
+    "logo": "",
+    "dependencies": [],
+    "screenshots": [],
+    "platform": "1.0.0.0",
+    "application": "19.0.0.0",
+    "idRanges": [
+        {
+            "from": 50000,
+            "to": 99999
+        }
+    ],
+    "contextSensitiveHelpUrl": "",
+    "showMyCode": true,
+    "runtime": "9.0",
+    "target": "OnPrem"
+}
