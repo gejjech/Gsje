@@ -62,4 +62,23 @@ codeunit 50001 "Gsje Apify Manager Test"
         ConsoleUrl := ApifyManager.GetApifyConsoleUrl('');
         Assert.ExpectedMessage('', ConsoleUrl);
     end;
+    
+    [Test]
+    procedure TestCloneApifyRun()
+    var
+        ApifyManager: Codeunit "Gsje Apify Manager";
+        Result: Text;
+    begin
+        // Test cloning a specific run ID
+        Result := ApifyManager.CloneApifyRun('1BYDIaIUoxcXwvZnO');
+        Assert.ExpectedMessage('Cloned Apify run from: 1BYDIaIUoxcXwvZnO to new run', Result);
+        
+        // Test cloning with another run ID
+        Result := ApifyManager.CloneApifyRun('AnotherRunId');
+        Assert.ExpectedMessage('Cloned Apify run from: AnotherRunId to new run', Result);
+        
+        // Test empty input
+        Result := ApifyManager.CloneApifyRun('');
+        Assert.ExpectedMessage('', Result);
+    end;
 }

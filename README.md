@@ -16,6 +16,7 @@ Provides core functionality for processing Apify runs and identifiers:
 - `ProcessIdentifier(Identifier: Text)`: Process custom identifiers
 - `GetApifyRunUrl(RunId: Text)`: Generate API URL for a run
 - `GetApifyConsoleUrl(RunId: Text)`: Generate console URL for a run
+- `CloneApifyRun(SourceRunId: Text)`: Clone an existing Apify run
 
 ### Page 50000 - Gsje Apify Manager
 User interface for interacting with the Apify manager functionality.

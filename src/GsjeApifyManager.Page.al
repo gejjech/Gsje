@@ -106,6 +106,23 @@ page 50000 "Gsje Apify Manager"
                     Result := ApifyManager.GetApifyConsoleUrl(RunId);
                 end;
             }
+            
+            action(CloneRun)
+            {
+                Caption = 'Clone Apify Run';
+                ApplicationArea = All;
+                ToolTip = 'Clone the entered Apify run ID';
+                Image = Copy;
+                
+                trigger OnAction()
+                var
+                    ApifyManager: Codeunit "Gsje Apify Manager";
+                begin
+                    if RunId = '' then
+                        RunId := '1BYDIaIUoxcXwvZnO';
+                    Result := ApifyManager.CloneApifyRun(RunId);
+                end;
+            }
         }
     }
     
