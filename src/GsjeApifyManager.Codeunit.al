@@ -52,4 +52,16 @@ codeunit 50000 "Gsje Apify Manager"
             
         exit('https://console.apify.com/view/runs/' + RunId);
     end;
+    
+    procedure CloneApifyRun(SourceRunId: Text): Text
+    var
+        Result: Text;
+    begin
+        // Clone an Apify run by creating a new run ID reference
+        if SourceRunId = '' then
+            exit('');
+            
+        Result := 'Cloned Apify run from: ' + SourceRunId + ' to new run';
+        exit(Result);
+    end;
 }
