@@ -1,34 +1,93 @@
 # Gsje
 
+
+
 A Dynamics 365 Business Central AL extension for managing Apify actor runs and related identifiers.
 
-## Features
+## Table of Contents
 
-- **Apify Run Management**: Process and handle Apify actor run IDs
-- **Identifier Processing**: Handle custom identifiers linked to Apify runs
-- **URL Generation**: Generate API and console URLs for Apify runs
+- [Overview](#overview)
+- [Quick Start](#quick-start)
+- [Model Routing](#model-routing)
+- [Project Layout](#project-layout)
+- [Development](#development)
+- [Related Repositories](#related-repositories)
 
-## Components
+## Overview
 
-### Codeunit 50000 - Gsje Apify Manager
-Provides core functionality for processing Apify runs and identifiers:
-- `ProcessApifyRun(RunId: Text)`: Process a specific Apify run ID
-- `ProcessIdentifier(Identifier: Text)`: Process custom identifiers
-- `GetApifyRunUrl(RunId: Text)`: Generate API URL for a run
-- `GetApifyConsoleUrl(RunId: Text)`: Generate console URL for a run
-- `CloneApifyRun(SourceRunId: Text)`: Clone an existing Apify run
+A Dynamics 365 Business Central AL extension for managing Apify actor runs and related identifiers.
 
-### Page 50000 - Gsje Apify Manager
-User interface for interacting with the Apify manager functionality.
+| | |
+|---|---|
+| **Stack** | — |
+| **Frameworks** | — |
+| **Tests** | none detected |
+| **Commits** | 2 |
+| **Last activity** | 2026-08-10 |
+| **Visibility** | public |
 
-## Issue Reference
+## Quick Start
 
-This extension specifically handles:
-- Issue identifier: `lPJzzMxvBLEg7pPr6`
-- Apify run ID: `1BYDIaIUoxcXwvZnO`
+### Install
 
-## Installation
+```bash
+# No dependency manifest detected — see source layout below.
+```
 
-1. Open the project in VS Code with the AL Language extension
-2. Configure your Business Central connection in `.vscode/launch.json`
-3. Build and deploy the extension to your Business Central environment
+### Run
+
+```bash
+# Entry point not auto-detected; inspect the layout below.
+```
+
+## Model Routing
+
+Agent work in this repo routes through Azure AI Foundry. See [`AGENTS.md`](./AGENTS.md)
+for the full contract.
+
+| Purpose | Deployment | Endpoint |
+|---|---|---|
+| Default / general | `gpt-5.6-sol` | `/openai/v1/chat/completions` |
+| Deep reasoning | `claude-opus-5` | `/openai/v1/responses` **only** |
+| Embeddings | `text-embedding-3-small` | `/openai/v1/embeddings` |
+
+```bash
+export AZURE_FOUNDRY_API_KEY=...        # never commit this
+export AZURE_FOUNDRY_BASE_URL=https://<resource>.openai.azure.com/openai/v1
+```
+
+> **Gotcha:** Claude deployments on Azure return `404 api_not_supported` on
+> `/chat/completions`. They answer **only** via the Responses API.
+
+## Project Layout
+
+```
+AGENTS.md
+LICENSE
+README.md
+app.json
+src/
+```
+
+## Development
+
+```bash
+# lint / format before committing
+# no linter configured
+
+# run the CI check locally
+gh workflow run hermes-azure-check.yml
+```
+
+Secrets live in environment variables and CI secrets — never in tracked files.
+
+## Related Repositories
+
+Part of a 84-repository workspace sharing one agentic contract:
+
+- **[agentic-harness](https://github.com/sahiixx/agentic-harness)** — patterns, contracts, and reference implementations
+- `AGENTS.md` in every repo pins identical model routing
+
+---
+
+<sub>README maintained by the agentic harness · last regenerated 2026-08-10</sub>
